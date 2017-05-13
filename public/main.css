@@ -1,0 +1,16 @@
+ .grid {
+  width: 600px;
+  height: 150px;
+}
+.ui-grid-header-cell {
+    min-height: 30px !important;
+     
+}
+
+.modalGrid {
+  width: 100px;
+  height: 20px;
+}
+.modal-dialog {
+  width: 150px;
+}

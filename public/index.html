@@ -1,0 +1,74 @@
+<!Doctype>
+<html ng-app="myapp">
+
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-touch.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+    <script src="http://ui-grid.info/release/ui-grid.js"></script>
+    <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
+    <link rel="stylesheet" href="unstable.css" />
+    <script  src="unstable.js" ></script>
+    
+     <link rel="stylesheet" href="main.css" type="text/css">
+    <!-- Latest compiled and minified unstable.CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="Controller/controller.js"></script>
+
+</head>
+
+<body>
+    <div class="container" ng-controller="appController">
+        {{a}}
+        <h3>Contact list app </h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> Name </th>
+                    <th> Email </th>
+                    <th> Phone </th>
+
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <input type="text" class="form-control" ng-model="per.Name"> </td>
+                    <td> <input type="text" class="form-control" ng-model="per.email"> </td>
+                    <td> <input type="text" class="form-control" ng-model="per.phone"> </td>
+                    <td><button class="btn btn-primary" ng-click="add()">Add </button></td>
+                    <td><button  class="btn-warning" ng-click="update()" >Update </button></td>
+                    
+                </tr>
+                <tr ng-repeat="per in persons">
+                    <td>{{per.Name}}</td>
+                    <td>{{per.email}}</td>
+                    <td>{{per.phone}}</td>
+            <td><button ng-click="Deletefun(per._id)" class="btn-danger" >Delete </button></td>
+            <td><button  class="btn-warning" ng-click="Edit(per._id)" >Edit </button></td>
+
+
+<hr>
+
+<td dire colspan="3"></td>
+                </tr>
+            </tbody>
+
+
+        </table>
+<div ui-grid="{data:persons, columnDefs: columnDefs, enableRowSelection:true, enableSelectAll:true, enableFiltering:true}" ui-grid-selection ui-grid-edit ui-grid-row-edit ui-grid-cellNav class="grid" ></div>
+    </div>
+
+    
+</body>
+
+</html>
